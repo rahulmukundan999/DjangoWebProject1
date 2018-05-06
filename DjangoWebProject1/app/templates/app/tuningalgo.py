@@ -44,13 +44,13 @@ def evaluate_models(dataset, p_values, d_values, q_values):
 def parser(x):
 	return datetime.strptime(x, '%b %Y')
 
+def tuneparameter():
+    series = read_csv('NewarkNewOrleans.csv', parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 
-series = read_csv('NewarkNewOrleans.csv', parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-
-# evaluate parameters
-p_values = range(0,10)
-d_values = range(0, 3)
-q_values = range(0, 3)
-warnings.filterwarnings("ignore")
-result = evaluate_models(series.values, p_values, d_values, q_values)
-return result
+    # evaluate parameters
+    p_values = range(0,10)
+    d_values = range(0, 3)
+    q_values = range(0, 3)
+    warnings.filterwarnings("ignore")
+    result = evaluate_models(series.values, p_values, d_values, q_values)
+    return result

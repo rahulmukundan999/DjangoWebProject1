@@ -26,6 +26,6 @@ def index(request):
 
 def output(request):
     if request.is_ajax():
-        py_obj = tuningalgo
+        py_obj = tuningalgo.tuneparameter()
         return render(request, 'app/output.html', {'output': py_obj})
 
