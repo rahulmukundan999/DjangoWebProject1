@@ -21,3 +21,11 @@ def get(self,request):
         form = HomeForm()
     return render(request,template_name,{'form':form})
 
+def index(request):
+    return render(request, 'app/layout.html')
+
+def output(request):
+    if request.is_ajax():
+        py_obj = tuningalgo
+        return render(request, 'app/output.html', {'output': py_obj})
+
